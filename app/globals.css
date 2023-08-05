@@ -6,6 +6,11 @@
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255;
+  --main-background: #000000;
+  --secondary-background: #ffffff;
+  --component-width: 1200px;
+  --section-padding: 10rem;
+  --main-hero:;
 }
 
 @media (prefers-color-scheme: dark) {
