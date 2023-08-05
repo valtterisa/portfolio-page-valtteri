@@ -15,6 +15,7 @@ import {
   PhoneIcon,
   PlayCircleIcon,
 } from '@heroicons/react/20/solid'
+import Link from 'next/link'
 
 const products = [
   {
@@ -68,7 +69,7 @@ export default function Example() {
       >
         <div className="flex lg:flex-1">
           <a href="#" className="-m-1.5 p-1.5">
-            <span className="sr-on">Your Company</span>
+            <span className="sr-on">Savonen Consulting Oy</span>
           </a>
         </div>
         <div className="flex lg:hidden">
@@ -133,30 +134,30 @@ export default function Example() {
             </Transition>
           </Popover> */}
 
-          <a
+          <Link
             href="#"
             className="text-md font-semibold leading-6 underline-offset-8 hover:underline "
           >
-            Home
-          </a>
-          <a
-            href="#"
-            className="text-md font-semibold leading-6 underline-offset-8 hover:underline"
-          >
             Work
-          </a>
-          <a
+          </Link>
+          <Link
             href="#"
             className="text-md font-semibold leading-6 underline-offset-8 hover:underline"
           >
-            About
-          </a>
-          <a
+            Solutions
+          </Link>
+          <Link
+            href="#"
+            className="text-md font-semibold leading-6 underline-offset-8 hover:underline"
+          >
+            Company
+          </Link>
+          <Link
             href="#"
             className="text-md font-semibold leading-6 underline-offset-8 hover:underline"
           >
             Contact
-          </a>
+          </Link>
         </Popover.Group>
       </nav>
       <Dialog

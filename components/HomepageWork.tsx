@@ -4,10 +4,10 @@ import Link from 'next/link'
 
 function HomepageWork() {
   return (
-    <section className="p-5 bg-secondary-background flex justify-center text-black sm:p-section-padding">
+    <section className="p-5 bg-secondary-background flex justify-center text-black sm:p-10">
       <div className="container">
         <div className="mr-0 sm:mr-[30%] w-full">
-          <h1 className="text-3xl font-bold mb-10">Our work</h1>
+          <h1 className="text-2xl p-3 font-bold sm:text-3xl">Our work</h1>
           <div className="flex flex-wrap justify-start">
             <WorkCard
               title="Lappeenrannan koneenrakennuskilta"

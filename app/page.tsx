@@ -3,7 +3,7 @@ import HomepageWork from '@/components/HomepageWork'
 
 export default function Home() {
   return (
-    <main className="flex flex-col justify-center">
+    <main className="flex flex-col">
       <HeroSection />
       <HomepageWork />
     </main>
