@@ -17,6 +17,10 @@ import {
 } from '@heroicons/react/20/solid'
 import Link from 'next/link'
 
+const company = [
+  { name: 'About', description: '', href: '#', icon: ChartPieIcon },
+]
+
 const products = [
   {
     name: 'Analytics',
@@ -60,7 +64,11 @@ function classNames(...classes: string[]) {
 
 export default function Example() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+  const [isRotated, setIsRotated] = useState(false)
 
+  const handleClick = () => {
+    setIsRotated((prevIsRotated) => !prevIsRotated)
+  }
   return (
     <header className="bg-main-background">
       <nav
@@ -69,7 +77,7 @@ export default function Example() {
       >
         <div className="flex lg:flex-1">
           <a href="#" className="-m-1.5 p-1.5">
-            <span className="sr-on">Savonen Consulting Oy</span>
+            {/* <span className="sr-on">Savonen Consulting Oy</span> */}
           </a>
         </div>
         <div className="flex lg:hidden">
@@ -146,12 +154,58 @@ export default function Example() {
           >
             Solutions
           </Link>
-          <Link
-            href="#"
-            className="text-md font-semibold leading-6 underline-offset-8 hover:underline"
-          >
-            Company
-          </Link>
+          <Popover className="relative">
+            <Popover.Button
+              className="flex items-center gap-x-1 font-semibold outline-none leading-6 text-white"
+              onClick={() => handleClick()}
+            >
+              Company
+              <ChevronDownIcon
+                className={`h-5 w-5 flex-none transform transition-transform ${
+                  isRotated ? 'rotate-0' : 'rotate-180'
+                } cursor-pointer`}
+                aria-hidden="true"
+              />
+            </Popover.Button>
+
+            <Transition
+              as={Fragment}
+              enter="transition ease-out duration-200"
+              enterFrom="opacity-0 translate-y-1"
+              enterTo="opacity-100 translate-y-0"
+              leave="transition ease-in duration-150"
+              leaveFrom="opacity-100 translate-y-0"
+              leaveTo="opacity-0 translate-y-1"
+            >
+              <Popover.Panel className="absolute top-full w-36 z-10 py-2 mt-3 max-w-md border-[1px] border-white rounded-xl overflow-hidden bg-main-background shadow-lg">
+                <div>
+                  {company.map((item) => (
+                    <div
+                      key={item.name}
+                      className="group relative flex items-center gap-x-6 rounded-lg px-2 text-white text-sm leading-6"
+                    >
+                      {/* <div className="flex h-11 w-11 flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
+                        <item.icon
+                          className="h-6 w-6 text-gray-600 group-hover:text-indigo-600"
+                          aria-hidden="true"
+                        />
+                      </div> */}
+                      <div className="flex-auto rounded transition duration-200">
+                        <a
+                          href={item.href}
+                          className="block font-semibold text-white p-2 rounded hover:bg-[hsla(0,0%,100%,.125)]"
+                        >
+                          {item.name}
+                        </a>
+                        <p className="mt-1 text-gray-600">{item.description}</p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </Popover.Panel>
+            </Transition>
+          </Popover>
+
           <Link
             href="#"
             className="text-md font-semibold leading-6 underline-offset-8 hover:underline"
